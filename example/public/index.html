@@ -23,12 +23,12 @@
       <!------------------------ Widget 1: To Do List ---------------------->
       <!--------------- ==================================== --------------->
       <div data-widget="p1c1wg1_widget">
-        <h2 data-heading="p1c1wg1h1_title">To-Do List</h2>
+        <h2 data-heading="p1c1wg1h1_title" data-translate="todotitle">To-Do List</h2>
 
         <!----------------------------- Add Task ----------------------------->
         <div data-widget="p1c1wg1d1_addTask">
-          <input data-input="p1c1wg1t1_taskInput" type="text" x-model="newTask" placeholder="Add a new task">
-          <button data-button="p1c1wg1b1_addBtn" @click="addTask(); isClicked = true;">Add</button>
+          <input data-input="p1c1wg1t1_taskInput" type="text" x-model="newTask" data-translate="add_task_placeholder" placeholder="Add a new task">
+          <button data-button="p1c1wg1b1_addBtn" @click="addTask(); isClicked = true;" data-translate="add_button">Add</button>
         </div>
 
         <!------------------------------ Tasklist ----------------------------->
@@ -40,7 +40,7 @@
               </div>
               <input data-input="p1c1wg1t3_editTaskInput" x-show="task.editing" x-model="task.text" @blur="saveTask(task); isClicked = false;" @keydown.enter="saveTask(task); isClicked = false;" type="text">
               <div data-container="p1c1wg1d2_deleteTask">
-                <button data-button="p1c1wg1b2_deleteBtn" @click="deleteTask(index); isClicked = false;">Delete</button>
+                <button data-button="p1c1wg1b2_deleteBtn" @click="deleteTask(index); isClicked = false;" data-translate="delete_button">Delete</button>
               </div>
             </li>
           </template>

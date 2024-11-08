@@ -147,3 +147,30 @@ function dynamicData() {
   }
 }
 
+// Language translation code
+
+let defaultLang = 'zh';
+
+const loadTranslations = async (lang) => {
+  const response = await fetch(`lang/${lang}.json`);
+  const translations = await response.json();
+  
+  document.querySelectorAll('[data-translate]').forEach((element) => {
+    const key = element.getAttribute('data-translate');
+    
+    // Update text content or placeholder based on element type
+    if (element.tagName === 'INPUT' && element.type === 'text') {
+      element.placeholder = translations[key] || key;
+    } else {
+      element.textContent = translations[key] || key;
+    }
+  });
+};
+
+// Load default language translations on page load
+loadTranslations(defaultLang);
+
+// Optionally, you can add a function to change the language dynamically
+const setLanguage = (lang) => {
+  loadTranslations(lang);
+};
