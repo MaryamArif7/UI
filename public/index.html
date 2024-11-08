@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard with Dynamic Widgets</title>
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body x-data="pageBackground()" x-init="changeBackground()" :class="bgColor" class="bg-transition">
+
+  <!--------------- ==================================== --------------->
+  <!------------------- Main Layout with Containers--------------------->
+  <!--------------- ==================================== --------------->
+  <div data-layout="p1">
+
+    <!--------------- ==================================== --------------->
+    <!---------------------------- Container 1 --------------------------->
+    <!--------------- ==================================== --------------->
+    <div data-container="p1c1_container" x-data="todoApp()" @click="glowCard" :class="isClicked ? 'glow' : ''">
+
+      <!--------------- ==================================== --------------->
+      <!------------------------ Widget 1: To Do List ---------------------->
+      <!--------------- ==================================== --------------->
+      <div data-widget="p1c1wg1_widget">
+        <h2 data-heading="p1c1wg1h1_title">To-Do List</h2>
+
+        <!----------------------------- Add Task ----------------------------->
+        <div data-widget="p1c1wg1d1_addTask">
+          <input data-input="p1c1wg1t1_taskInput" type="text" x-model="newTask" placeholder="Add a new task">
+          <button data-button="p1c1wg1b1_addBtn" @click="addTask(); isClicked = true;">Add</button>
+        </div>
+
+        <!------------------------------ Tasklist ----------------------------->
+        <ul data-list="p1c1wg1ul1_taskList">
+          <template x-for="(task, index) in tasks" :key="index">
+            <li data-item="p1c1wg1li1_taskItem">
+              <div data-text="p1c1wg1t2_taskText" @dblclick="editTask(index); isClicked = true;" x-show="!task.editing">
+                <span x-text="task.text"></span>
+              </div>
+              <input data-input="p1c1wg1t3_editTaskInput" x-show="task.editing" x-model="task.text" @blur="saveTask(task); isClicked = false;" @keydown.enter="saveTask(task); isClicked = false;" type="text">
+              <div data-container="p1c1wg1d2_deleteTask">
+                <button data-button="p1c1wg1b2_deleteBtn" @click="deleteTask(index); isClicked = false;">Delete</button>
+              </div>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+
+    <!--------------- ==================================== --------------->
+    <!--------------------------- Container 2  --------------------------->
+    <!--------------- ==================================== --------------->
+    <div data-container="p1c2_container">
+      <div data-widget="p1c2wg1_widget" x-data="exchangeRateApp()" x-init="calculateRate()" @click="isClicked = false">
+        <h2 data-heading="p1c2wg1h1_title">Currency Exchange</h2>
+
+        <!------------- Titles for Source and Destination Currency ------------>
+        <div data-layout="currency_titles">
+          <div>Source Currency</div>
+          <div>Destination Currency</div>
+        </div>
+
+        <!------------- Source and Destination Currency Selection ----------->
+        <div data-widget="p1c2wg1d1_currencySelection">
+          <select data-select="p1c2wg1s1_sourceCurrency" x-model="sourceCurrency" @change="highlightValue(); calculateRate()">
+            <option value="AED">🇦🇪 AED</option>
+            <option value="USD">🇺🇸 USD</option>
+            <option value="EUR">🇪🇺 EUR</option>
+          </select>
+          <select data-select="p1c2wg1s2_destinationCurrency" x-model="destinationCurrency" @change="highlightValue(); calculateRate()">
+            <option value="AED">🇦🇪 AED</option>
+            <option value="USD">🇺🇸 USD</option>
+            <option value="EUR">🇪🇺 EUR</option>
+          </select>
+        </div>
+
+        <!------------------ Amount Input and Exchange -------------------------->
+        <div data-widget="p1c2wg1d2_exchange">
+          <input data-input="p1c2wg1t1_amountInput" type="number" x-model="sourceAmount" @input="highlightValue(); calculateRate()" placeholder="Amount">
+          <span>=</span>
+          <input data-input="p1c2wg1t2_exchangeResult" type="text" x-model="destinationAmount" readonly :class="highlighted ? 'bg-yellow-200' : ''">
+        </div>
+
+        <div data-paragraph="p1c2wg1p1_executiveRate">
+          <p>Executive Rate: <span x-text="currentRate"></span></p>
+        </div>
+      </div>
+    </div>
+
+    <!--------------- ==================================== --------------->
+    <!-------------------------- Container 3 ----------------------------->
+    <!--------------- ==================================== --------------->
+    <div data-container="p1c3_container" x-data="worldTimeApp()" x-init="updateTime()" 
+     :style="selectedTimezone === 'Asia/Dubai' ? 'background-color: #FEF3C7;' : selectedTimezone === 'Europe/London' ? 'background-color: #BFDBFE;' : 'background-color: #FFFFFF;'">
+      <div data-widget="p1c3wg1_widget">
+        <h2 data-heading="p1c3wg1h1_title">World Time</h2>
+
+        <!-------------------------- Titles for Timezones ----------------------->
+        <div data-layout="timezone_titles">
+          <div>Timezone</div>
+        </div>
+
+        <!---------------------------- Timezone Selection --------------------->
+        <div data-widget="p1c3wg1d1_timezoneSelection">
+          <select data-select="p1c3wg1s1_timezone" x-model="selectedTimezone" @change="updateTime">
+            <option value="Africa/Abidjan">Africa/Abidjan</option>
+            <option value="America/New_York">America/New York</option>
+            <option value="Asia/Dubai">Asia/Dubai</option>
+            <option value="Asia/Tokyo">Asia/Tokyo</option>
+            <option value="Europe/London">Europe/London</option>
+          </select>
+        </div>
+
+        <!-------------------------- Display Current Time --------------------->
+        <div data-widget="p1c3wg1p1_currentTime">
+          <span x-text="formattedTime"></span>
+        </div>
+      </div>
+    </div>
+
+    <!--------------- ==================================== --------------->
+    <!---------------------------- Container 4 ---------------------------->
+    <!--------------- ==================================== --------------->
+    <div data-container="p1c4_container">
+      <div data-widget="p1c4wg1_widget" x-data="dynamicData()" x-init="generateData()">
+        <h2 data-heading="p1c4wg1h1_title">Product List</h2>
+
+        <!------------------- Titles for ID, Name, and Price ------------------->
+        <div data-layout="product_titles">
+          <div>ID</div>
+          <div>Name</div>
+          <div>Price</div>
+        </div>
+
+        <ul data-list="p1c4wg1ul1_dataList">
+          <template x-for="(product, index) in dataList" :key="index">
+            <li data-item="p1c4wg1li1_dataItem">
+              <span data-text="p1c4wg1s1_productId" x-text="product.id"></span>
+              <span data-text="p1c4wg1s2_productName" x-text="product.name"></span>
+              <span data-text="p1c4wg1s3_productPrice" x-text="'$' + product.price"></span>
+            </li>
+          </template>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!---------------------- Link to External JavaScript ------------------->
+  <script src="middleware.js"></script>
+  <script src="index.js"></script>
+</body>
+</html>

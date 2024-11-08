@@ -1,0 +1,21 @@
+{
+  "name": "ui",
+  "version": "1.0.0",
+  "description": "1. Clone the repo 2. Start the local server    ```sh    python3 -m http.server    ``` 3. Open the Webpage: http://127.0.0.1:8000/",
+  "main": "index.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.iotiot.in/sneha/ui.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.14"
+  }
+}
