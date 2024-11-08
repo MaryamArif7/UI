@@ -149,7 +149,7 @@ function dynamicData() {
 
 // Language translation code
 
-let defaultLang = 'zh';
+let defaultLang = 'en';
 
 const loadTranslations = async (lang) => {
   const response = await fetch(`lang/${lang}.json`);
