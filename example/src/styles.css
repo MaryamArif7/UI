@@ -1,0 +1,257 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Import Lato font variations */
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Black.ttf') format('truetype');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-BlackItalic.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-BoldItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Italic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Light.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-LightItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-Thin.ttf') format('truetype');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('/fonts/Lato-ThinItalic.ttf') format('truetype');
+  font-weight: 100;
+  font-style: italic;
+}
+/*!--------------- ============================ ---------------*/
+/* -------------------- Global Styles -------------------- */
+/*!--------------- ============================ ---------------*/
+
+.glow {
+  box-shadow: 0 0 20px rgba(0, 123, 255, 0.7) !important;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.bg-transition {
+  transition: background-color 3s ease;
+}
+
+/*!--------------- ============================ ---------------*/
+/* ---------------- Main Layout ---------------- */
+/*!--------------- ============================ ---------------*/
+
+[data-layout="p1"] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, auto);
+  gap: 1rem; /* Equivalent to Tailwind’s gap-4 */
+  padding: 2rem; /* Equivalent to Tailwind’s p-8 */
+}
+
+/*!--------------- ============================ ---------------*/
+/* ---------------- Container Styles ---------------- */
+/*!--------------- ============================ ---------------*/
+
+[data-container="p1c1_container"],
+[data-container="p1c2_container"],
+[data-container="p1c3_container"],
+[data-container="p1c4_container"] {
+  @apply bg-white shadow-md rounded-lg p-4;
+}
+
+/*!--------------- ============================ ---------------*/
+/* ---------------- Widget Styles ---------------- */
+/*!--------------- ============================ ---------------*/
+
+[data-widget="p1c1wg1_widget"],
+[data-widget="p1c2wg1_widget"],
+[data-widget="p1c3wg1_widget"],
+[data-widget="p1c4wg1_widget"] {
+  @apply p-4;
+}
+
+/* ---------------- Headings ---------------- */
+
+[data-heading] {
+  @apply text-xl font-bold mb-4;
+}
+
+/* ---------------- Specific Elements ---------------- */
+
+/*!--------------- ============================ ---------------*/
+/*-----------------Widget: To-Do List ------------------------ */
+/*!--------------- ============================ ---------------*/
+
+[data-widget="p1c1wg1d1_addTask"] {
+  @apply flex mb-4;
+}
+
+[data-input="p1c1wg1t1_taskInput"] {
+  @apply border border-gray-300 rounded-lg p-2 w-full mr-2;
+}
+
+[data-button="p1c1wg1b1_addBtn"] {
+  @apply bg-blue-500 text-white px-4 py-2 rounded-lg;
+}
+
+[data-list="p1c1wg1ul1_taskList"] {
+  @apply space-y-2;
+}
+
+[data-item="p1c1wg1li1_taskItem"] {
+  @apply flex justify-between items-center;
+}
+
+[data-text="p1c1wg1t2_taskText"] {
+  @apply flex-1 text-gray-700;
+}
+
+[data-input="p1c1wg1t3_editTaskInput"] {
+  @apply border border-gray-300 rounded-lg p-2 w-full mr-2 flex-1;
+}
+
+[data-container="p1c1wg1d2_deleteTask"] {
+  @apply ml-4;
+}
+
+[data-button="p1c1wg1b2_deleteBtn"] {
+  @apply bg-red-500 text-white px-3 py-1 rounded-lg;
+}
+
+/*!--------------- ============================ ---------------*/
+/* ------------------Currency Exchange Widget -----------------*/
+/*!--------------- ============================ ---------------*/
+
+[data-layout="currency_titles"] {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Equivalent to Tailwind’s mb-2 */
+}
+
+[data-widget="p1c2wg1d1_currencySelection"] {
+  @apply flex items-center mb-4;
+}
+
+[data-select="p1c2wg1s1_sourceCurrency"],
+[data-select="p1c2wg1s2_destinationCurrency"] {
+  @apply border border-gray-300 rounded-lg p-2;
+}
+
+[data-select="p1c2wg1s1_sourceCurrency"] {
+  @apply mr-2;
+}
+
+[data-widget="p1c2wg1d2_exchange"] {
+  @apply flex items-center;
+}
+
+[data-input="p1c2wg1t1_amountInput"],
+[data-input="p1c2wg1t2_exchangeResult"] {
+  @apply border border-gray-300 rounded-lg p-2 w-1/2;
+}
+
+[data-input="p1c2wg1t1_amountInput"] {
+  @apply mr-2;
+}
+
+[data-input="p1c2wg1t2_exchangeResult"] {
+  @apply ml-2;
+}
+
+[data-paragraph="p1c2wg1p1_executiveRate"] p {
+  @apply text-gray-500 mt-4;
+}
+
+/*!--------------- ============================ ---------------*/
+/*--------------------World Time Widget----------------------- */
+/*!--------------- ============================ ---------------*/
+
+[data-layout="timezone_titles"] {
+  display: grid;
+  grid-template-columns: 1fr;
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Equivalent to Tailwind’s mb-2 */
+}
+
+[data-widget="p1c3wg1d1_timezoneSelection"] {
+  @apply flex items-center mb-4;
+}
+
+[data-select="p1c3wg1s1_timezone"] {
+  @apply border border-gray-300 rounded-lg p-2 w-full;
+}
+
+[data-widget="p1c3wg1p1_currentTime"] {
+  @apply text-2xl;
+}
+
+/*!--------------- ============================ ---------------*/
+/*------------------Widget: Dynamic Data List----------------- */
+/*!--------------- ============================ ---------------*/
+
+[data-layout="product_titles"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  font-weight: bold;
+  margin-bottom: 0.5rem; /* Equivalent to Tailwind’s mb-2 */
+}
+
+[data-list="p1c4wg1ul1_dataList"] {
+  @apply space-y-2;
+}
+
+[data-item="p1c4wg1li1_dataItem"] {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @apply items-center py-2;
+}

@@ -53,8 +53,22 @@
             </li>
           </ul>
         </nav>
-        <div class="w-[250px] h-[150px] bg-purple">
+        <!-- another way to add gradient: bg-gradient-to-r from-purple-400 to-purple-600 -->
 
+        <div
+          style="
+            background: linear-gradient(
+              90deg,
+              #eaabf0 0%,
+              #d297ef 14%,
+              #4623e9 100%
+            );
+          "
+          class="w-[250px] h-[150px] ml-5 rounded-xl mt-20 flex flex-col justify-center items-center"
+        >
+          <h1 class="text-white ">Upgrade to Pro to get</h1>
+          <h1 class="text-white ">to get access all features</h1>
+          <button class="bg-white font-bold text-blue-800 px-2 py-2 rounded-lg w-[203px] h-[40px] mt-5">Get Pro Now !</button>
         </div>
       </aside>
     </div>
