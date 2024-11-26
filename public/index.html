@@ -4,179 +4,171 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="/public/styles.css " rel="stylesheet" />
+    <link href="/public/styles.css" rel="stylesheet" />
   </head>
 
   <body>
     <!--------------- ==================================== --------------->
     <!------------------- Main Layout with Containers--------------------->
     <!--------------- ==================================== --------------->
-    <div data-layout="p1" class="bg-blue-50 min-h-screen flex">
+    <div data-layout="p1">
       <!--------------- ==================================== --------------->
       <!---------------------------- Container 1 --------------------------->
-      <aside
-        data-container="p1c1_container"
-        class="w-[306px] min-h-screen bg-white"
-      >
-        <header
-          data-header="p1c1_header"
-          class="ml-20 pt-5 text-lg flex items-center gap-1"
-        >
-          <h1 data-heading="p1c1h1_title" class="text-2xl font-bold">
-            Dashboard
-          </h1>
+      <div data-container="p1c1_container">
+        <header data-header="p1c1_header">
+          <h1 data-heading="p1c1h1_title">Dashboard</h1>
         </header>
-        <!--------------- ==================================== -------------------------->
-        <!------------------------Navigation and container 2----------------------------->
-        <!--------------- ==================================== -------------------------->
-
-        <nav data-navigation="p1c2w1_sidebar-nav" class="mt-10 ml-10">
+      </div>
+      <!--------------- ==================================== -------------------------->
+      <!------------------------Navigation and container 2----------------------------->
+      <!--------------- ==================================== -------------------------->
+      <div>
+        <nav data-navigation="p1c2w1_sidebar-nav">
           <!--------------- ==================================== ------------------------>
           <!--------------------Container 2 Widget 1------------ --------------------------->
-          <ul data-list="p1c2w1l1_list" class="space-y-4">
+          <ul data-list="p1c2w1l_list">
             <!--------------- ==================================== ------------------------------------->
             <!-----------------Container 2 wideget 1 list item 1------------ --------------------------->
-            <li data-item="p1c2w1l1_list" class="flex items-center gap-5">
+            <li data-item="p1c2w1l1_list">
               <img
-                data-image="p1c2w1l1_img"
+                data-image="p1c2w1l1_dashboard"
                 src="./image/dashoboard.svg"
                 alt="Dashboard Icon"
               />
-              <span data-text="p1c2w1l1_text" class="text-gray-500"
-                >Dashboard</span
-              >
+              <span data-text="p1c2w1l1h1_text">Dashboard</span>
             </li>
             <!--------------- ==================================== ------------------------------------->
             <!--------------- Container 2 wideget 1 list item 2------------- --------------------------->
-            <li data-item="p1c2w1l2_list" class="flex items-center gap-5">
+            <li data-item="p1c2w1l2_list">
               <img
-                data-image="p1c2w1l2_img"
+                data-image="p1c2w1l2_product"
                 src="./image/product.svg"
                 alt="Product Icon"
-                class="h-6 w-6"
               />
-              <span data-text="p1c2w1l2_text" class="text-gray-500"
-                >Product</span
-              >
+              <span data-text="p1c2w1l2h2_text">Product</span>
             </li>
             <!--------------- ==================================== ------------------------------------->
             <!----------------Container 2 wideget 1 list item 3------------- --------------------------->
-            <li data-item="p1c2w1l3_list" class="flex items-center gap-5">
+            <li data-item="p1c2w1l3_list">
               <img
-                data-image="p1c2w1l3_img"
+                data-image="p1c2w1l3_customer"
                 src="./image/customer.svg"
                 alt="Customers Icon"
-                class="h-6 w-6"
               />
-              <span data-text="p1c2w1l3_text" class="text-gray-500"
-                >Customers</span
-              >
+              <span data-text="p1c2w1l3h3_text">Customers</span>
             </li>
             <!--------------- ==================================== ------------------------------------>
             <!----------------Container 2 wideget 1 list item 4---------------------------------------->
-            <li data-item="p1c2w1l4_list" class="flex items-center gap-5">
+            <li data-item="p1c2w1l4_list">
               <img
-                data-image="p1c2w1l3_img"
+                data-image="p1c2w1l3_income"
                 src="./image/income.svg"
                 alt="Income Icon"
-                class="h-6 w-6"
               />
-              <span data-text="p1c2w1l3_text" class="text-gray-500"
-                >Income</span
-              >
+              <span data-text="p1c2w1l3h4_text">Income</span>
             </li>
             <!--------------- ==================================== ----------------------------------->
             <!----------------Container 2 wideget 1 list item 5--------------------------------------->
-            <li data-item="p1c2w1l4_list" class="flex items-center gap-5">
+            <li data-item="p1c2w1l5_list">
               <img
-                data-image="p1c2w1l4_img"
+                data-image="p1c2w1l4_promote"
                 src="./image/promote.svg"
                 alt="Promote Icon"
-                class="h-6 w-6"
               />
-              <span data-text="p1c2w1l4_text" class="text-gray-500"
-                >Promote</span
-              >
+              <span data-text="p1c2w1l4h5_text">Promote</span>
             </li>
             <!--------------- ==================================== --------------->
-            <!---------------------------- Container 2 wideget 1 list item 5--------------------------->
-            <li data-item="p1c2w1l5_list" class="flex items-center gap-5">
+            <!---------------------------- Container 2 wideget 1 list item 6--------------------------->
+            <li data-item="p1c2w1l6_list">
               <img
-                data-image="p1c2w1l5_img"
+                data-image="p1c2w1l6_help"
                 src="./image/help.svg"
                 alt="Help Icon"
-                class="h-6 w-6"
               />
-              <span data-text="p1c2w1l5_text" class="text-gray-500">Help</span>
+              <span data-text="p1c2w1l5h6_text">Help</span>
             </li>
           </ul>
         </nav>
+      </div>
+
+      <!--------------- ==================================== ------------------------->
+      <!---------------------- Container 3------ --------------------------->
+      <div data-container="p1c3_container">
+        <!--------------- ==================================== ------------------------->
+        <!---------------------- Container 3 widget 1------ --------------------------->
+        <div data-widget="p1c3w1_acessproWidget">
+          <h1 data-heading="p1c3w1h1_text">Upgrade to Pro to get</h1>
+          <h1 data-heading="p1c3w1h2_text">to get access all features</h1>
+          <button data-button="p1c3w1b1_button">Get Pro Now!</button>
+        </div>
         <!--------------- ==================================== ------------------------->
         <!---------------------- Container 3 widget 2------ --------------------------->
-        <div data-container="p1c3_container">
-          <div
-            data-widget="p1c3w2_widget"
-            style="
-              background: linear-gradient(
-                90deg,
-                #eaabf0 0%,
-                #d297ef 14%,
-                #4623e9 100%
-              );
-            "
-            class="w-[250px] h-[150px] ml-5 rounded-xl mt-20 flex flex-col justify-center items-center"
-          >
-            <h1 data-heading="p1c3w2h1_text" class="text-white">
-              Upgrade to Pro to get
-            </h1>
-            <h1 data-heading="p1c3w2h2_text" class="text-white">
-              to get access all features
-            </h1>
-            <button
-              data-button="p1c3w2b1_button"
-              class="bg-white font-bold text-blue-800 px-2 py-2 rounded-lg w-[203px] h-[40px] mt-5"
-            >
-              Get Pro Now !
-            </button>
+        <div>
+          <div data-widget="p1c3w2_userWidget">
+            <img data-image="p1c3w2im1_image" src="./image/customer.svg" />
           </div>
           <!--------------- ==================================== ------------------------->
           <!---------------------- Container 3 widget 3------ --------------------------->
-          <div
-            data-widget="p1c3w3_widget"
-            class="flex items-center mt-5 gap-5 ml-5"
-          >
-            <img
-              data-image="p1c3w3im1_image"
-              src="./image/customer.svg"
-              class="w-6 h-6"
-            />
+          <div data-widget="p1c3w3_userinfoWidget">
+            <h1 data-heading="p1c3w3h1_heading">Evano</h1>
+            <h1 data-heading="p1c3w3h2_text">Project Manager</h1>
+            <img data-image="p1c3w3im1_image" src="./image/vector.svg" />
+          </div>
+        </div>
+      </div>
 
-            <div data-container="p1c3w3c1" class="flex flex-col">
-              <h1 data-heading="p1c3w3c1_heading" class="text-lg font-semibold">
-                Evano
-              </h1>
-              <h1 data-heading="p1c3w3c1_text" class="text-sm text-gray-500">
-                Project Manager
-              </h1>
-            </div>
-
-            <img
-              data-image="p1c3w3im2_image"
-              src="./image/vector.svg"
-              class="w-4 h-4v ml-14"
+      <!--------------- ==================================== ------------------------->
+      <!---------------------- main  Container ------ --------------------------->
+      <main data-layout="main-container">
+        <!--------------- ==================================== ------------------------->
+        <!---------------------- Container 4 ------ --------------------------->
+        <div data-container="p1c4">
+          <!--------------- ==================================== ------------------------->
+          <!---------------------- Container 4 widget 1------ --------------------------->
+          <div data-widget="p1c4w1_helloWidget">
+            <h1 data-heading="p1c4w1h1_text">Hello Evano 👋🏼,</h1>
+          </div>
+          <!--------------- ==================================== ------------------------->
+          <!---------------------- Container 4 widget 2------ --------------------------->
+          <div data-widget="p1c4w2_searchWidget">
+            <input
+              data-input="p1c4w2in1_input"
+              type="text"
+              placeholder="Search"
             />
           </div>
         </div>
-      </aside>
-      <main>
-        <div class="ml-16 pt-5">
-          <div class="flex gap-96">
-            <h1 class="font-bold text-2xl">Hello Evano 👋🏼,</h1>
-            <input
-              type="text"
-              placeholder="Search"
-              class="w-[216px] h-[38px] px-2 py-2 border"
+        <!--------------- ==================================== ------------------------->
+        <!---------------------- Container  5 ------ --------------------------->
+        <div data-container="p1c5_container">
+          <!--------------- ==================================== ------------------------->
+          <!---------------------- Container  5 widget 1 ------ --------------------------->
+          <div data-widget="p1c5w1_customerWidget">
+            <img data-image="p1c5w1im1_circle" src="./image/esclipe.svg" />
+            <img
+              data-image="p1c5w1im1_totalcustomer"
+              src="./image/totalCustomer1.svg"
             />
+            <h1 data-heading="p1c5w1h1_text">Total Customers</h1>
+            <h1 data-heading="p1c5w1h2_number">5,423</h1>
+            <h1><span data-span="p1c5w1s1_span">16%</span>this month</h1>
+          </div>
+          <!--------------- ==================================== ------------------------->
+          <!---------------------- Container  5 widget 2 ------ --------------------------->
+          <div data-widget="p1c5w2_memberWidget">
+            <img data-image="p1c5w2im1_circle" src="./image/esclipe.svg" />
+            <img data-image="p1c5w1im2_members" src="./image/member.svg" />
+            <h1 data-heading="p1c5w1h1_text">Members</h1>
+            <h1 data-heading="p1c5w1h2_number">1,893</h1>
+            <h1><span data-span="p1c5w1s1_span">1%</span>this month</h1>
+          </div>
+          <!--------------- ==================================== ------------------------->
+          <!---------------------- Container  5 widget 3 ------ --------------------------->
+          <div data-widget="p1c5w3_activeWidget">
+            <img data-image="p1c5w3im1_circle" src="./image/esclipe.svg" />
+            <img data-image="p1c5w3im1_active" src="./image/active.svg" />
+            <h1 data-heading="p1c5w3h1_text">Active Now</h1>
+            <h1 data-heading="p1c5w1h2_number">189</h1>
           </div>
         </div>
       </main>
