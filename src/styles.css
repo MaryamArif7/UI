@@ -6,4 +6,16 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+  body{
+    @apply bg-blue-500 ;
+  }
+  /* ---========================--- */
+ /* ---P1: Page 1 Main Layout ---- */
+/* ---========================--- */
+
+  [data-layout="p1"]{
+    @apply min-h-screen;
+    display: grid;
+    grid-template-columns: 1fr 7fr;
+   
+  }
