@@ -4,157 +4,101 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link href="/public/styles.css" rel="stylesheet" />
+
+    <link href="styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
   </head>
 
   <body>
-    <!--------------- ==================================== --------------->
-    <!------------------- Main Layout with Containers--------------------->
-    <!--------------- ==================================== --------------->
+    <!--------------- ==================================== ---------------> 
+    <!------------------- Main Layout with Containers---------------------> 
+    <!--------------- ==================================== ---------------> 
     <div data-layout="p1">
-      <!--------------- ==================================== --------------->
-      <!---------------------------- Container 1 --------------------------->
+      <!--------------- ==================================== ---------------> 
+      <!---------------------------- Container 1 ---------------------------> 
       <div data-container="p1c1_container">
         <header data-header="p1c1_header">
+          <img src="./image/logo.svg" />
           <h1 data-heading="p1c1h1_title">Dashboard</h1>
         </header>
       </div>
-      <!--------------- ==================================== -------------------------->
-      <!------------------------Navigation and container 2----------------------------->
-      <!--------------- ==================================== -------------------------->
-      <div>
+
+      <!--------------- ==================================== --------------------------> 
+      <!------------------------Navigation and container 2-----------------------------> 
+      <!--------------- ==================================== --------------------------> 
+   
         <nav data-navigation="p1c2w1_sidebar-nav">
-          <!--------------- ==================================== ------------------------>
-          <!--------------------Container 2 Widget 1------------ --------------------------->
           <ul data-list="p1c2w1l_list">
-            <!--------------- ==================================== ------------------------------------->
-            <!-----------------Container 2 wideget 1 list item 1------------ --------------------------->
             <li data-item="p1c2w1l1_list">
-              <img
-                data-image="p1c2w1l1_dashboard"
-                src="./image/dashoboard.svg"
-                alt="Dashboard Icon"
-              />
+              <img data-image="p1c2w1l1_dashboard" src="./image/dashoboard.svg" alt="Dashboard Icon" />
               <span data-text="p1c2w1l1h1_text">Dashboard</span>
             </li>
-            <!--------------- ==================================== ------------------------------------->
-            <!--------------- Container 2 wideget 1 list item 2------------- --------------------------->
             <li data-item="p1c2w1l2_list">
-              <img
-                data-image="p1c2w1l2_product"
-                src="./image/product.svg"
-                alt="Product Icon"
-              />
+              <img data-image="p1c2w1l2_product" src="./image/product.svg" alt="Product Icon" />
               <span data-text="p1c2w1l2h2_text">Product</span>
             </li>
-            <!--------------- ==================================== ------------------------------------->
-            <!----------------Container 2 wideget 1 list item 3------------- --------------------------->
             <li data-item="p1c2w1l3_list">
-              <img
-                data-image="p1c2w1l3_customer"
-                src="./image/customer.svg"
-                alt="Customers Icon"
-              />
+              <img data-image="p1c2w1l3_customer" src="./image/customer.svg" alt="Customers Icon" />
               <span data-text="p1c2w1l3h3_text">Customers</span>
             </li>
-            <!--------------- ==================================== ------------------------------------>
-            <!----------------Container 2 wideget 1 list item 4---------------------------------------->
             <li data-item="p1c2w1l4_list">
-              <img
-                data-image="p1c2w1l3_income"
-                src="./image/income.svg"
-                alt="Income Icon"
-              />
+              <img data-image="p1c2w1l3_income" src="./image/income.svg" alt="Income Icon" />
               <span data-text="p1c2w1l3h4_text">Income</span>
             </li>
-            <!--------------- ==================================== ----------------------------------->
-            <!----------------Container 2 wideget 1 list item 5--------------------------------------->
             <li data-item="p1c2w1l5_list">
-              <img
-                data-image="p1c2w1l4_promote"
-                src="./image/promote.svg"
-                alt="Promote Icon"
-              />
+              <img data-image="p1c2w1l4_promote" src="./image/promote.svg" alt="Promote Icon" />
               <span data-text="p1c2w1l4h5_text">Promote</span>
             </li>
-            <!--------------- ==================================== --------------->
-            <!---------------------------- Container 2 wideget 1 list item 6--------------------------->
             <li data-item="p1c2w1l6_list">
-              <img
-                data-image="p1c2w1l6_help"
-                src="./image/help.svg"
-                alt="Help Icon"
-              />
+              <img data-image="p1c2w1l6_help" src="./image/help.svg" alt="Help Icon" />
               <span data-text="p1c2w1l5h6_text">Help</span>
             </li>
           </ul>
         </nav>
-      </div>
+      
 
-      <!--------------- ==================================== ------------------------->
-      <!---------------------- Container 3------ --------------------------->
+      <!--------------- ==================================== -------------------------> 
+      <!---------------------- Container 3------ ---------------------------> 
       <div data-container="p1c3_container">
-        <!--------------- ==================================== ------------------------->
-        <!---------------------- Container 3 widget 1------ --------------------------->
         <div data-widget="p1c3w1_acessproWidget">
           <h1 data-heading="p1c3w1h1_text">Upgrade to Pro to get</h1>
-          <h1 data-heading="p1c3w1h2_text">to get access all features</h1>
+          <h1 data-heading="p1c3w1h2_text">access all features</h1>
           <button data-button="p1c3w1b1_button">Get Pro Now!</button>
         </div>
-        <!--------------- ==================================== ------------------------->
-        <!---------------------- Container 3 widget 2------ --------------------------->
-        <div>
-          <div data-widget="p1c3w2_userWidget">
-            <img data-image="p1c3w2im1_image" src="./image/customer.svg" />
-          </div>
-          <!--------------- ==================================== ------------------------->
-          <!---------------------- Container 3 widget 3------ --------------------------->
-          <div data-widget="p1c3w3_userinfoWidget">
-            <h1 data-heading="p1c3w3h1_heading">Evano</h1>
-            <h1 data-heading="p1c3w3h2_text">Project Manager</h1>
-            <img data-image="p1c3w3im1_image" src="./image/vector.svg" />
-          </div>
+
+        <div data-widget="p1c3w2_userWidget">
+          <img data-image="p1c3w2im1_image" src="./image/customer.svg" />
+        </div>
+
+        <div data-widget="p1c3w3_userinfoWidget">
+          <h1 data-heading="p1c3w3h1_heading">Evano</h1>
+          <h1 data-heading="p1c3w3h2_text">Project Manager</h1>
+          <img data-image="p1c3w3im1_image" src="./image/vector.svg" />
         </div>
       </div>
 
-      <!--------------- ==================================== ------------------------->
-      <!---------------------- main  Container ------ --------------------------->
+      <!--------------- ==================================== -------------------------> 
+      <!---------------------- main  Container ------ ---------------------------> 
       <main data-layout="main-container">
-        <!--------------- ==================================== ------------------------->
-        <!---------------------- Container 4 ------ --------------------------->
-        <div data-container="p1c4">
-          <!--------------- ==================================== ------------------------->
-          <!---------------------- Container 4 widget 1------ --------------------------->
+        <div data-container="p1c4_container">
           <div data-widget="p1c4w1_helloWidget">
             <h1 data-heading="p1c4w1h1_text">Hello Evano 👋🏼,</h1>
           </div>
-          <!--------------- ==================================== ------------------------->
-          <!---------------------- Container 4 widget 2------ --------------------------->
+
           <div data-widget="p1c4w2_searchWidget">
-            <input
-              data-input="p1c4w2in1_input"
-              type="text"
-              placeholder="Search"
-            />
+            <input data-input="p1c4w2in1_input" type="text" placeholder="Search" />
           </div>
         </div>
-        <!--------------- ==================================== ------------------------->
-        <!---------------------- Container  5 ------ --------------------------->
+
         <div data-container="p1c5_container">
-          <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  5 widget 1 ------ --------------------------->
           <div data-widget="p1c5w1_customerWidget">
             <img data-image="p1c5w1im1_circle" src="./image/esclipe.svg" />
-            <img
-              data-image="p1c5w1im1_totalcustomer"
-              src="./image/totalCustomer1.svg"
-            />
+            <img data-image="p1c5w1im1_totalcustomer" src="./image/totalCustomer1.svg" />
             <h1 data-heading="p1c5w1h1_text">Total Customers</h1>
             <h1 data-heading="p1c5w1h2_number">5,423</h1>
             <h1><span data-span="p1c5w1s1_span">16%</span>this month</h1>
           </div>
-          <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  5 widget 2 ------ --------------------------->
+
           <div data-widget="p1c5w2_memberWidget">
             <img data-image="p1c5w2im1_circle" src="./image/esclipe.svg" />
             <img data-image="p1c5w1im2_members" src="./image/member.svg" />
@@ -162,8 +106,7 @@
             <h1 data-heading="p1c5w1h2_number">1,893</h1>
             <h1><span data-span="p1c5w1s1_span">1%</span>this month</h1>
           </div>
-          <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  5 widget 3 ------ --------------------------->
+
           <div data-widget="p1c5w3_activeWidget">
             <img data-image="p1c5w3im1_circle" src="./image/esclipe.svg" />
             <img data-image="p1c5w3im1_active" src="./image/active.svg" />
@@ -171,26 +114,19 @@
             <h1 data-heading="p1c5w1h2_number">189</h1>
           </div>
         </div>
-        <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  6  ------ --------------------------->
-          <div data-container=""="p1c6">
-            <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  6 widget 1 title and sub title ------ --------------------------->
-            <div data-widget="p1c6w1_titleWidget">
-              <h1 data-heading="p1c6w1h1_title">All Customers</h1>
-              <h1 data-heading="p1c6w1h2_subTitle">Active Members</h1>
-            </div>
-      <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  6 widget 2 Search ------ --------------------------->
-       <div data-widget="p1c6w2_searchWidget">
 
-     <input type="text" placeholder="search " />
+        <div data-container="p1c6_container">
+          <div data-widget="p1c6w1_titleWidget">
+            <h1 data-heading="p1c6w1h1_title">All Customers</h1>
+            <h1 data-heading="p1c6w1h2_subTitle">Active Members</h1>
+          </div>
 
-       </div>
-        <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  6 widget 3 sort By ------ --------------------------->
-          <div daat-widget="p1c6w3_widgetSortBy">
-            <label for="sortBy" >Sort By</label>
+          <div data-widget="p1c6w2_searchWidget">
+            <input type="text" placeholder="search " />
+          </div>
+
+          <div data-widget="p1c6w3_widgetSortBy">
+            <label for="sortBy">Sort By</label>
             <select id="sortBy" name="sortBy">
               <option value="name">Customer Name</option>
               <option value="company">Company</option>
@@ -198,102 +134,102 @@
               <option value="status">Status</option>
             </select>
           </div>
-        <!--------------- ==================================== ------------------------->
-          <!---------------------- Container  6 widget 4 Table ------ --------------------------->
-<div data-widget="p1c6w4_widgetTable">
-<table>
-<thead>
-  <tr>
-    <th scope="col">Customer Name</th>
-    <th scope="col">Company</th>
-    <th scope="col">Phone Number</th>
-    <th scope="col">Email</th>
-    <th scope="col">Country</th>
-    <th scope="col">Status</th>
-  </tr>
 
-</thead>
-<tbody>
-  <tr>
-    <th scope="row">
-      jane Copper
-    </th>
-    <td>Microsoft</td>
-    <td>(255)555-0118</td>
-    <td>jane@microsoft.com</td>
-    <td>United States</td>
-    <td><Button>Active</Button></td>
-  </tr>
-  <tr>
-    <th scope="row">
-      Flayd Miles
-    </th>
-    <td>Yahoo</td>
-    <td>(255)555-0118</td>
-    <td>Flayd@yahoo.com</td>
-    <td>Kiribati</td>
-    <td><Button>Inactive</Button></td>
-  </tr>
-  <tr>
-    <th scope="row">
-      Ronal Richards
-    </th>
-    <td>Adobe</td>
-    <td>(255)555-0118</td>
-    <td>ronald@adobe.com</td>
-    <td>Israel</td>
-    <td><Button>Inactive</Button></td>
-  </tr>
-  <tr>
-    <th scope="row">
-        Marvin Mckinney
-    </th>
-    <td>Tesla</td>
-    <td>(255)555-0118</td>
-    <td>marvin@tesla.com</td>
-    <td>Iran</td>
-    <td><Button>Active</Button></td>
-  </tr>
-  <tr>
-    <th scope="row">
-      Jerome Bell
-    </th>
-    <td>Google</td>
-    <td>(255)555-0118</td>
-    <td>jerome@google.com</td>
-    <td>Reunion</td>
-    <td><Button>Active</Button></td>
-  </tr>
-  <tr>
-    <th scope="row">
-      Kathryn Murphy
-    </th>
-    <td>Microsoft</td>
-    <td>(255)555-0118</td>
-    <td>kathryn@microsoft.com</td>
-    <td>Curacaro</td>
-    <td><Button>Active</Button></td>
-  </tr>
-  <tr>
-    <th scope="row">Jacob Janes</th>
-    <td>Yahoo</td>
-    <td>(255)555-0118</td>
-    <td>jacob@yahoo.com</td>
-    <td>Brazil</td>
-    <td><Button>Active</Button></td>
-  </tr> 
-  <tr>
-    <th scope="row">Kristin Watson</th>
-    <td>Facebook</td>
-    <td>(255)555-0118</td>
-    <td>kristin@facebook.com</td>
-    <td>Aland Islands</td>
-    <td><Button>Inactive</Button></td>
-  </tr> 
-</tbody>
-</table>
-</div>
+          <div data-widget="p1c6w4_widgetTable">
+            <table>
+              <thead>
+                <tr>
+                  <th scope="col">Customer Name</th>
+                  <th scope="col">Company</th>
+                  <th scope="col">Phone Number</th>
+                  <th scope="col">Email</th>
+                  <th scope="col">Country</th>
+                  <th scope="col">Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+                  
+                <tr>
+                  <th scope="row">
+                    jane Copper
+                  </th>
+                  <td>Microsoft</td>
+                  <td>(255)555-0118</td>
+                  <td>jane@microsoft.com</td>
+                  <td>United States</td>
+                  <td><Button>Active</Button></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Flayd Miles
+                  </th>
+                  <td>Yahoo</td>
+                  <td>(255)555-0118</td>
+                  <td>Flayd@yahoo.com</td>
+                  <td>Kiribati</td>
+                  <td><Button>Inactive</Button></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Ronal Richards
+                  </th>
+                  <td>Adobe</td>
+                  <td>(255)555-0118</td>
+                  <td>ronald@adobe.com</td>
+                  <td>Israel</td>
+                  <td><Button>Inactive</Button></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                      Marvin Mckinney
+                  </th>
+                  <td>Tesla</td>
+                  <td>(255)555-0118</td>
+                  <td>marvin@tesla.com</td>
+                  <td>Iran</td>
+                  <td><Button>Active</Button></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Jerome Bell
+                  </th>
+                  <td>Google</td>
+                  <td>(255)555-0118</td>
+                  <td>jerome@google.com</td>
+                  <td>Reunion</td>
+                  <td><Button>Active</Button></td>
+                </tr>
+                <tr>
+                  <th scope="row">
+                    Kathryn Murphy
+                  </th>
+                  <td>Microsoft</td>
+                  <td>(255)555-0118</td>
+                  <td>kathryn@microsoft.com</td>
+                  <td>Curacaro</td>
+                  <td><Button>Active</Button></td>
+                </tr>
+                <tr>
+                  <th scope="row">Jacob Janes</th>
+                  <td>Yahoo</td>
+                  <td>(255)555-0118</td>
+                  <td>jacob@yahoo.com</td>
+                  <td>Brazil</td>
+                  <td><Button>Active</Button></td>
+                </tr> 
+                <tr>
+                  <th scope="row">Kristin Watson</th>
+                  <td>Facebook</td>
+                  <td>(255)555-0118</td>
+                  <td>kristin@facebook.com</td>
+                  <td>Aland Islands</td>
+                  <td><Button>Inactive</Button></td>
+                </tr> 
+              </tbody>
+            </table>
           </div>
+        </div>
       </main>
     </div>
   </body>
