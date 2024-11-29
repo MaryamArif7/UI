@@ -129,18 +129,82 @@
   display: grid;
   grid-template-rows: auto auto 1fr;
 }
-
+/* ---========================--- */
+/* ---Conatiner :4------- ---- */
+/* ---========================--- */
 [data-container="p1c4_container"] {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+@apply gap-96;
 }
-
+/* ---========================--- */
+/* ---Conatiner 4 widget 1------- ---- */
+/* ---========================--- */
+[data-widget="p1c4w1_helloWidget"]{
+@apply font-poppins font-medium text-[24px];
+}
+[data-widget="p1c4w2_searchWidget"]{
+  border: none;
+  @apply w-[216px] h-[38px];
+}
+/* ---========================--- */
+/* ---Conatiner :5------- ---- */
+/* ---========================--- */
 [data-container="p1c5_container"] {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  @apply w-[876px] h-[151px] bg-white mt-3 rounded-xl;
 }
+/* ---========================--- */
+/* ---Customer widget------- ---- */
+/* ---========================--- */
+[data-widget="p1c5w1_customerWidget"]{
+  @apply flex gap-5 justify-center items-center;
+}
+[data-image="p1c5w1im1_totalcustomer" ]{
+  @apply w-[42px] h-[42px]
+}
+
+[data-heading="p1c5w1h1_text"]{
+  color: #ACACAC;
+  @apply font-poppins font-normal text-[14px]
+}
+[ data-heading="p1c5w1h2_number"]{
+  @apply font-poppins font-semibold text-[32px]
+}
+[data-div="p1c5w1d1"]{
+@apply flex justify-center items-center gap-2 
+}
+[data-span="p1c5w1s1_span"]{
+  @apply flex items-center justify-center text-green-600
+}
+/* ---========================--- */
+/* --Members widget------- ---- */
+/* ---========================--- */
+[data-widget="p1c5w2_memberWidget"]{
+  @apply flex gap-5 justify-center items-center;
+}
+
+[data-image="p1c5w1im2_members" ]{
+  @apply w-[40px] h-[40px]
+}
+[data-div="p1c5w1d2"]{
+  @apply flex justify-center items-center gap-2 
+  }
+  [data-span="p1c5w1s2_span"]{
+    @apply flex items-center justify-center text-red-600
+  }
+  /* ---========================--- */
+/* ---Active Member  widget------- ---- */
+/* ---========================--- */
+[data-widget="p1c5w3_activeWidget"]{
+  @apply flex gap-5 justify-center items-center;
+}
+
+
+/* ---========================--- */
+/* ---Conatiner :6------- ---- */
+/* ---========================--- */
 
 [data-container="p1c6_container"] {
 }
