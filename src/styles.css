@@ -6,28 +6,34 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    
 }
 
 [data-layout="p1"] {
   display: grid;
-  grid-template-columns: 1fr 7fr;
+  grid-template-columns: 250px 1fr;
   grid-template-rows: auto; 
-  @apply bg-blue-50 min-h-screen;
-}
+  @apply bg-blue-50;
+  height: 100vh;
+  overflow: hidden;
+  @apply gap-24;
 
-[data-container="p1c1_container"] {
+} 
+
+[data-container="p1c1_sidebar"] {
   padding: 20px;
-  grid-column: 1/2;
-  grid-row: 1/2;
+  grid-template-rows: auto 1fr auto auto;
   width: 306px;
-  @apply bg-white relative;
+  
+  @apply bg-white;
   
 }
 
-[data-header="p1c1_header"] {
-  
+
+[data-header="p1c1_header"]{
   display: flex;
   align-items: center;
+  justify-content: center;
   @apply gap-3;
 }
 
@@ -40,23 +46,23 @@
   @apply font-poppins font-semibold text-[26px];
 }
 
-[data-navigation="p1c2w1_sidebar-nav"] {
-  
-  grid-column: 1/2;
+[data-navigation="p1c2w1_sidebar-nav"] {  
   background-color: white;
-  @apply sticky;
+  @apply sticky mt-10 ml-10;
 }
 
 [data-list="p1c2w1l_list"] {
   list-style: none;
-  padding: 0;
-  margin: 0;
-  grid-row: 2/3;
+  
+  
+
 }
 
 [data-item^="p1c2w1l"] {
   display: flex;
   align-items: center;
+
+  @apply gap-5;
 }
 
 [data-item^="p1c2w1l"] img {
@@ -66,33 +72,37 @@
 
 [data-item^="p1c2w1l"] span {
 
-  color: #333;
+  color: #9197B3;
+  @apply font-poppins font-medium text-[14px]
 }
 
 [data-container="p1c3_container"] {
-  grid-column: 1/2;
-  grid-row: 3/3;
+ 
   @apply bg-white;
 }
 
 [data-layout="main-container"] {
-  grid-column: 2/2 ;
+    gap:20px;
+    padding: 20px;
   display: grid;
-  grid-template-rows: auto auto;
-  @apply pt-0;
+  grid-template-rows: auto auto 1fr ;
+
 }
 
 [data-container="p1c4_container"] {
-  grid-row: 1/2;
-  @apply flex justify-between pt-0 ;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap:20px
+
 }
 
 [data-container="p1c5_container"] {
-  grid-row: 2/3;
-  @apply flex justify-between;
+display: grid;
+grid-template-columns: repeat(3,1fr);
+gap:10px
 }
 
 [data-container="p1c6_container"] {
-  grid-row: 3/4;
+  
  
 }
