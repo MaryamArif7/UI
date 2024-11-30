@@ -133,24 +133,30 @@
           <div data-widget="p1c5w3_activeWidget">
             <img data-image="p1c5w3im1_active" src="./image/active.svg" />
             <div>
-              <h1 data-heading="p1c5w3h1_text">Active Now</h1>
+              <h1 data-heading="p1c5w1h1_text">Active Now</h1>
               <h1 data-heading="p1c5w1h2_number">189</h1>
+              <div data-div="p1c5w1">
+              <img src="./image/1stgirl.svg" />
+              <img src="./image/2ndgirl.svg" />
+              <img src="./image/3rdgirl.svg" />
+              <img src="./image/4thgirl.svg" />
+              <img src="./image/5thgirl.svg" />
+              </div>
             </div>
         
           </div>
         </div>
 
         <div data-container="p1c6_container">
+         <div data-div="p1c6d1">
           <div data-widget="p1c6w1_titleWidget">
             <h1 data-heading="p1c6w1h1_title">All Customers</h1>
             <h1 data-heading="p1c6w1h2_subTitle">Active Members</h1>
           </div>
 
-          <div data-widget="p1c6w2_searchWidget">
-            <input type="text" placeholder="search " />
-          </div>
-
-          <div data-widget="p1c6w3_widgetSortBy">
+          
+          <div data-widget="p1c6w3_searchSortWidget">
+            <input data-input="p1c6w3d2" type="text" placeholder="search " />
             <label for="sortBy">Sort By</label>
             <select id="sortBy" name="sortBy">
               <option value="name">Customer Name</option>
@@ -160,99 +166,113 @@
             </select>
           </div>
 
+         </div>
           <div data-widget="p1c6w4_widgetTable">
             <table>
               <thead>
                 <tr>
-                  <th scope="col">Customer Name</th>
-                  <th scope="col">Company</th>
-                  <th scope="col">Phone Number</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Country</th>
-                  <th scope="col">Status</th>
+                  <th data-heading="p1c6w3d1"scope="col">Customer Name</th>
+                  <th  data-heading="p1c6w3d1"scope="col">Company</th>
+                  <th data-heading="p1c6w3d1"scope="col">Phone Number</th>
+                  <th data-heading="p1c6w3d1" scope="col">Email</th>
+                  <th data-heading="p1c6w3d1"scope="col">Country</th>
+                  <th data-heading="p1c6w3d1" scope="col">Status</th>
                 </tr>
               </thead>
               <tbody>
                 
                   
-                <tr>
-                  <th scope="row">
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2" scope="row">
                     jane Copper
-                  </th>
-                  <td>Microsoft</td>
-                  <td>(255)555-0118</td>
-                  <td>jane@microsoft.com</td>
-                  <td>United States</td>
-                  <td><Button>Active</Button></td>
+                  </td>
+                  <td  data-heading="p1c6w3d2">Microsoft</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">jane@microsoft.com</td>
+                  <td  data-heading="p1c6w3d2">United States</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_active">Active</Button></td>
                 </tr>
-                <tr>
-                  <th scope="row">
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2" scope="row">
                     Flayd Miles
-                  </th>
-                  <td>Yahoo</td>
-                  <td>(255)555-0118</td>
-                  <td>Flayd@yahoo.com</td>
-                  <td>Kiribati</td>
-                  <td><Button>Inactive</Button></td>
+                  </td>
+                  <td  data-heading="p1c6w3d2">Yahoo</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">Flayd@yahoo.com</td>
+                  <td  data-heading="p1c6w3d2">Kiribati</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_Inactive">Inactive</Button></td>
                 </tr>
-                <tr>
-                  <th scope="row">
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2" scope="row">
                     Ronal Richards
-                  </th>
-                  <td>Adobe</td>
-                  <td>(255)555-0118</td>
-                  <td>ronald@adobe.com</td>
-                  <td>Israel</td>
-                  <td><Button>Inactive</Button></td>
+                  </td>
+                  <td  data-heading="p1c6w3d2">Adobe</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">ronald@adobe.com</td>
+                  <td  data-heading="p1c6w3d2">Israel</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_Inactive">Inactive</Button></td>
                 </tr>
-                <tr>
-                  <th scope="row">
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2" scope="row">
                       Marvin Mckinney
-                  </th>
-                  <td>Tesla</td>
-                  <td>(255)555-0118</td>
-                  <td>marvin@tesla.com</td>
-                  <td>Iran</td>
-                  <td><Button>Active</Button></td>
+                  </td>
+                  <td  data-heading="p1c6w3d2">Tesla</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">marvin@tesla.com</td>
+                  <td  data-heading="p1c6w3d2">Iran</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_active">Active</Button></td>
                 </tr>
-                <tr>
-                  <th scope="row">
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2" scope="row">
                     Jerome Bell
-                  </th>
-                  <td>Google</td>
-                  <td>(255)555-0118</td>
-                  <td>jerome@google.com</td>
-                  <td>Reunion</td>
-                  <td><Button>Active</Button></td>
+                  </td>
+                  <td  data-heading="p1c6w3d2">Google</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">jerome@google.com</td>
+                  <td  data-heading="p1c6w3d2">Reunion</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_active">Active</Button></td>
                 </tr>
-                <tr>
-                  <th scope="row">
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2"scope="row">
                     Kathryn Murphy
-                  </th>
-                  <td>Microsoft</td>
-                  <td>(255)555-0118</td>
-                  <td>kathryn@microsoft.com</td>
-                  <td>Curacaro</td>
-                  <td><Button>Active</Button></td>
+                  </td>
+                  <td  data-heading="p1c6w3d2">Microsoft</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">kathryn@microsoft.com</td>
+                  <td data-heading="p1c6w3d2">Curacaro</td>
+                  <td data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_active">Active</Button></td>
                 </tr>
-                <tr>
-                  <th scope="row">Jacob Janes</th>
-                  <td>Yahoo</td>
-                  <td>(255)555-0118</td>
-                  <td>jacob@yahoo.com</td>
-                  <td>Brazil</td>
-                  <td><Button>Active</Button></td>
+                <tr data-row="p1c6w3r">
+                  <td  data-heading="p1c6w3d2"scope="row">Jacob Janes</td>
+                  <td  data-heading="p1c6w3d2">Yahoo</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">jacob@yahoo.com</td>
+                  <td  data-heading="p1c6w3d2">Brazil</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_active">Active</Button></td>
                 </tr> 
-                <tr>
-                  <th scope="row">Kristin Watson</th>
-                  <td>Facebook</td>
-                  <td>(255)555-0118</td>
-                  <td>kristin@facebook.com</td>
-                  <td>Aland Islands</td>
-                  <td><Button>Inactive</Button></td>
+                <tr data-row="p1c6w3r">
+                  <td   data-heading="p1c6w3d2"scope="row">Kristin Watson</td>
+                  <td  data-heading="p1c6w3d2">Facebook</td>
+                  <td  data-heading="p1c6w3d2">(255)555-0118</td>
+                  <td  data-heading="p1c6w3d2">kristin@facebook.com</td>
+                  <td  data-heading="p1c6w3d2">Aland Islands</td>
+                  <td  data-heading="p1c6w3d2"><Button data-button="p1c6w3b1_Inactive">Inactive</Button></td>
                 </tr> 
               </tbody>
             </table>
+            <div data-div="p1c6w4_pagination">
+             <p data-heading="p1c6w4p1">Showing total 1 to 8 of 256k entries</p>
+             <div data-div="p1c6w4d1">
+              <button data-button="p1c6w4b1">< </button>
+              <button  data-button="p1c6w4b1">1</button>
+              <button  data-button="p1c6w4b1">2</button>
+              <button  data-button="p1c6w4b1">3</button>
+              <button  data-button="p1c6w4b1">4</button>...
+              <button  data-button="p1c6w4b1">40</button>
+              <button  data-button="p1c6w4b1">> </button>
+              
+             </div>
+            </div>
           </div>
         </div>
       </main>
