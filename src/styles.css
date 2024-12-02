@@ -15,8 +15,7 @@
   display: grid;
   grid-template-columns: 250px 1fr;
   @apply bg-blue-50 gap-24;
-  height: 100vh;
-  overflow: hidden;
+ 
 }
 /* ---========================--- */
 /* ------CONTAINER 1-------- ---- */
@@ -27,7 +26,7 @@
   display: grid;
   grid-template-rows: auto 1fr auto auto;
   width: 306px;
-  @apply bg-white;
+  @apply bg-white overflow-y-auto;
 }
 
 [data-header="p1c1_header"] {
@@ -76,7 +75,7 @@
   height: 24px;
 }
 
-[data-item="p1c2w1l1_list"] span {
+[data-item="p1c2w1l1_list"] button {
   color: #9197b3;
   @apply font-poppins font-medium text-[14px];
 }
@@ -87,7 +86,7 @@
   @apply px-2 py-2 rounded-md;
 }
 
-[data-item^="p1c2w1l"]:hover [data-text] {
+[data-item^="p1c2w1l"]:hover [data-button] {
   color: white;
   @apply font-poppins font-medium text-[14px];
 }
@@ -145,6 +144,7 @@
   padding: 20px;
   display: grid;
   grid-template-rows: auto auto 1fr;
+@apply overflow-y-auto;
 }
 /* ---========================--- */
 /* ---Conatiner :4------- ---- */

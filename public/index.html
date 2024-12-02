@@ -22,7 +22,7 @@
       <div data-container="p1c1_container">
         <header data-header="p1c1_header">
           <img src="./image/logo.svg" />
-          <h1 data-heading="p1c1h1_title">Dashboard</h1>
+          <h1 data-heading="p1c1h1_title" data-translate="dashboardTitle">Dashboard</h1>
         </header>
       </div>
 
@@ -30,20 +30,19 @@
       <!------------------------Navigation and container 2----------------------------->
       <!--------------- ==================================== -------------------------->
 
-      <nav data-navigation="p1c2w1_sidebar-nav">
+      <nav data-navigation="p1c2w1_sidebar-nav" x-data="sidebarFun">
         <ul data-list="p1c2w1l_list">
           <li data-item="p1c2w1l1_list">
             <div data-div="p1c2w1l1d1">
               <img data-image="p1c2w1l1_dashboard" src="./image/dashoboard.svg" alt="Dashboard Icon" />
-              <span data-text="p1c2w1l1h1_text">Dashboard</span>
+              <button data-button="p1c2w1l1b1_button" data-translate="dashboardBtn">Dashboard</button>
             </div>
 
-            <img data-image="p1c2w1l1i1" src="./image/vector2.svg" />
           </li>
           <li data-item="p1c2w1l1_list">
             <div data-div="p1c2w1l1d1">
               <img data-image="p1c2w1l2_product" src="./image/product.svg" alt="Product Icon" />
-              <span data-text="p1c2w1l2h2_text">Product</span>
+              <button data-button="p1c2w1l2b2_button"@click="productBtn(); isClicked=true;" data-translate="productBtn">Product</button>
             </div>
 
             <img data-image="p1c2w1l1i1" src="./image/vector2.svg" />
@@ -51,7 +50,7 @@
           <li data-item="p1c2w1l1_list">
             <div data-div="p1c2w1l1d1">
               <img data-image="p1c2w1l3_customer" src="./image/customer.svg" alt="Customers Icon" />
-              <span data-text="p1c2w1l3h3_text">Customers</span>
+              <button data-button="p1c2w1l3b3_button" @click="customerBtn(); isClicked=true;" data-translate="customerBtn">Customers</button>
             </div>
 
             <img data-image="p1c2w1l1i1" src="./image/vector2.svg" />
@@ -59,7 +58,7 @@
           <li data-item="p1c2w1l1_list">
             <div data-div="p1c2w1l1d1">
               <img data-image="p1c2w1l3_income" src="./image/income.svg" alt="Income Icon" />
-              <span data-text="p1c2w1l3h4_text">Income</span>
+              <button data-button="p1c2w1l3b4_button" @click="incomeBtn();isClicked=true;" data-translate="incomeBtn">Income</button>
             </div>
 
             <img data-image="p1c2w1l1i1" src="./image/vector2.svg" />
@@ -67,7 +66,7 @@
           <li data-item="p1c2w1l1_list">
             <div data-div="p1c2w1l1d1">
               <img data-image="p1c2w1l4_promote" src="./image/promote.svg" alt="Promote Icon" />
-              <span data-text="p1c2w1l4h5_text">Promote</span>
+              <button data-button="p1c2w1l4b5_button" @click="promoteBtn(); isClicked=true;" data-translate="promoteBtn">Promote</button>
             </div>
 
             <img data-image="p1c2w1l1i1" src="./image/vector2.svg" />
@@ -75,7 +74,7 @@
           <li data-item="p1c2w1l1_list">
             <div data-div="p1c2w1l1d1">
               <img data-image="p1c2w1l6_help" src="./image/help.svg" alt="Help Icon" />
-              <span data-text="p1c2w1l5h6_text">Help</span>
+              <button data-button="p1c2w1l5b6_button" @click="helpBtn(); isClicked=true;" data-translate="helpBtn">Help</button>
             </div>
             <img data-image="p1c2w1l1i1" src="./image/vector2.svg" />
           </li>
@@ -87,9 +86,9 @@
       <!---------------------- Container 3------ --------------------------->
       <div data-container="p1c3_container">
         <div data-widget="p1c3w1_acessproWidget">
-          <h1 data-heading="p1c3w1h1_text">Upgrade to Pro to get</h1>
-          <h1 data-heading="p1c3w1h2_text">access all features !</h1>
-          <button data-button="p1c3w1b1_button">Get Pro Now!</button>
+          <h1 data-heading="p1c3w1h1_text" data-translate="upgradeTitle">Upgrade to Pro to get</h1>
+          <h1 data-heading="p1c3w1h2_text" data-translate="acessFeature">access all features !</h1>
+          <button data-button="p1c3w1b1_button" data-translate="protext" @click="getproBtn(); isClicked=true;">Get Pro Now!</button>
         </div>
 
         <div data-widget="p1c3w2_userWidget">
@@ -97,8 +96,8 @@
 
 
           <div data-widget="p1c3w3_userinfoWidget">
-            <h1 data-heading="p1c3w3h1_heading">Evano</h1>
-            <p data-heading="p1c3w3h2_text">Project Manager</p>
+            <h1 data-heading="p1c3w3h1_heading" data-translate="username">Evano</h1>
+            <p data-heading="p1c3w3h2_text" data-translate="userDesignation">Project Manager</p>
 
           </div>
           <img data-image="p1c3w3im1_image" src="./image/vector.svg" />
@@ -113,11 +112,11 @@
     <main data-layout="main-container">
       <div data-container="p1c4_container">
         <div data-widget="p1c4w1_helloWidget">
-          <h1 data-heading="p1c4w1h1_text">Hello Evano 👋🏼,</h1>
+          <h1 data-heading="p1c4w1h1_text" data-translate="greetingUser">Hello Evano 👋🏼,</h1>
         </div>
 
         <div data-widget="p1c4w2_searchWidget">
-          <input data-input="p1c4w2in1_input" type="text" placeholder="Search" />
+          <input data-input="p1c4w2in1_input" data-translate="searchInput" type="text" placeholder="Search" />
         </div>
       </div>
 
@@ -125,10 +124,10 @@
         <div data-widget="p1c5w1_customerWidget">
           <img data-image="p1c5w1im1_totalcustomer" src="./image/totalCustomer1.svg" />
           <div>
-            <h1 data-heading="p1c5w1h1_text">Total Customers</h1>
-            <h1 data-heading="p1c5w1h2_number">5,423</h1>
+            <h1 data-heading="p1c5w1h1_text" data-translate="totalCustomer">Total Customers</h1>
+            <h1 data-heading="p1c5w1h2_number" data-translate="totalNumber">5,423</h1>
             <div data-div="p1c5w1d1">
-              <span data-span="p1c5w1s1_span">
+              <span data-span="p1c5w1s1_span " data-translate="image">
                 <img src="./image/arrow.svg" width="20" height="20" /> 16%
               </span>
               this month
@@ -143,8 +142,8 @@
           <img data-image="p1c5w1im2_members" src="./image/member.svg" />
           <div>
 
-            <h1 data-heading="p1c5w1h1_text">Members</h1>
-            <h1 data-heading="p1c5w1h2_number">1,893</h1>
+            <h1 data-heading="p1c5w1h1_text" data-translate="totalMembers">Members</h1>
+            <h1 data-heading="p1c5w1h2_number" data-translate="activeMembers">1,893</h1>
             <div data-div="p1c5w1d2">
               <span data-span="p1c5w1s2_span">
                 <img src="./image/arrowdown.svg" width="20" height="20" /> 1%
@@ -158,8 +157,8 @@
         <div data-widget="p1c5w3_activeWidget">
           <img data-image="p1c5w3im1_active" src="./image/active.svg" />
           <div>
-            <h1 data-heading="p1c5w1h1_text">Active Now</h1>
-            <h1 data-heading="p1c5w1h2_number">189</h1>
+            <h1 data-heading="p1c5w1h1_text" data-translate="acive">Active Now</h1>
+            <h1 data-heading="p1c5w1h2_number" data-translate="activeNumbers">189</h1>
             <div data-div="p1c5w1">
               <img src="./image/1stgirl.svg" />
               <img src="./image/2ndgirl.svg" />
@@ -175,19 +174,19 @@
       <div data-container="p1c6_container">
         <div data-div="p1c6d1">
           <div data-widget="p1c6w1_titleWidget">
-            <h1 data-heading="p1c6w1h1_title">All Customers</h1>
-            <h1 data-heading="p1c6w1h2_subTitle">Active Members</h1>
+            <h1 data-heading="p1c6w1h1_title" data-translate="customer">All Customers</h1>
+            <h1 data-heading="p1c6w1h2_subTitle" data-translate="activeMembers">Active Members</h1>
           </div>
 
 
           <div data-widget="p1c6w3_searchSortWidget">
-            <input data-input="p1c6w3d2" type="text" placeholder="search " />
-            <label for="sortBy">Sort By</label>
+            <input data-input="p1c6w3d2"data-translate="inputForSerach"type="text" placeholder="search " />
+            <label data-translate="labelSort" for="sortBy">Sort By</label>
             <select id="sortBy" name="sortBy">
-              <option value="name">Customer Name</option>
-              <option value="company">Company</option>
-              <option value="country">Country</option>
-              <option value="status">Status</option>
+              <option value="name" data-translate="customerOption">Customer Name</option>
+              <option value="company" data-translate="companyOption">Company</option>
+              <option value="country" data-translate="countryOption">Country</option>
+              <option value="status" data-translate="statusOption">Status</option>
             </select>
           </div>
 
