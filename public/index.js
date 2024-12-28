@@ -1,5 +1,5 @@
 
-function sidebarFun() {
+ function sidebarFun() {
     return {
         isClicked: false, 
         productBtn() {

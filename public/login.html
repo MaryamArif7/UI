@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles.css">
+  <title>Login & Signup</title>
+</head>
+
+<body>
+  <div data-container="c1_container">
+    <h2 data-heading="c1h1_heading">Login</h2>
+    <form data-form="c1f1_form" id="authForm">
+      <input data-input="c1i1_input" type="text" id="username" placeholder="Username" required />
+      <input data-input="c1i2_input" type="password" id="password" placeholder="Password" required />
+      <button data-button="c1b1_button" type="submit">Submit</button>
+    </form>
+    <p data-input="c1i3_input">Don't have an account? <a href="#">Sign Up</a></p>
+  </div>
+
+  <script>
+   // Define database name and object store name
+const dbName = 'UserDataDB'; // IndexedDB database name
+const storeName = 'users'; // Object store name
+
+/**
+ * Opens or creates the IndexedDB database.
+ * @returns {Promise<IDBDatabase>} A promise that resolves to the opened database instance.
+ */
+function createIndexedDB() {
+  const request = indexedDB.open(dbName, 1);
+
+  request.onupgradeneeded = (event) => {
+    const db = event.target.result;
+
+    // Create the `users` object store with `username` as the key path
+    if (!db.objectStoreNames.contains(storeName)) {
+      const store = db.createObjectStore(storeName, { keyPath: 'username' });
+
+      // Create indexes for efficient querying
+      store.createIndex('userId', 'userId', { unique: false });
+      store.createIndex('passwordId', 'passwordId', { unique: false });
+    }
+
+    console.log('Database and `users` object store created/updated successfully.');
+  };
+
+  request.onsuccess = (event) => {
+    console.log('Database opened successfully.');
+  };
+
+  request.onerror = (event) => {
+    console.error('Error opening database:', event.target.error);
+  };
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  createIndexedDB();
+});
+
+// Form handling
+const formTitle = document.querySelector("h2[data-heading='c1h1_heading']");
+const toggleForm = document.querySelector("[data-input='c1i3_input']");
+let isLogin = true;
+
+// Toggle between Login and Signup
+toggleForm.addEventListener("click", () => {
+  isLogin = !isLogin;
+  formTitle.textContent = isLogin ? "Login" : "Sign Up";
+  toggleForm.innerHTML = isLogin
+    ? "Don't have an account? <a href='#'>Sign Up</a>"
+    : "Already have an account? <a href='#'>Login</a>";
+});
+
+// Handle form submission
+document.querySelector("[data-form='c1f1_form']").addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
+
+  const request = indexedDB.open(dbName, 1);
+  request.onsuccess = (event) => {
+    const db = event.target.result;
+    const transaction = db.transaction([storeName], "readwrite");
+    const store = transaction.objectStore(storeName);
+
+    if (isLogin) {
+      // Login logic
+      const getUser = store.get(username);
+      getUser.onsuccess = (event) => {
+        const user = event.target.result;
+        if (user && user.password === password) {
+          const token = generateToken(username);
+          localStorage.setItem("token", token);
+          alert("Login Successful! Token stored.");
+        } else {
+          alert("Invalid username or password");
+        }
+      };
+      getUser.onerror = () => alert("User not found!");
+    } else {
+      // Signup logic
+      const addUser = store.add({ username, password });
+      addUser.onsuccess = () => alert("Signup Successful! Now login.");
+      addUser.onerror = () => alert("User already exists!");
+    }
+  };
+  request.onerror = () => alert("Database error!");
+});
+
+/**
+ * Generates a JWT token for the given username.
+ * @param {string} username - The username for which the token is generated.
+ * @returns {string} The generated JWT token.
+ */
+function generateToken(username) {
+  const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+  const payload = btoa(JSON.stringify({ username, exp: Date.now() + 3600000 }));
+  const signature = btoa(header + "." + payload);
+  return `${header}.${payload}.${signature}`;
+}
+
+/**
+ * Checks the session based on the stored JWT token.
+ */
+function checkSession() {
+  const token = localStorage.getItem("token");
+  if (token) {
+    const payload = JSON.parse(atob(token.split(".")[1]));
+    if (payload.exp > Date.now()) {
+      alert("Session Active for " + payload.username);
+    } else {
+      localStorage.removeItem("token");
+      alert("Session Expired. Please Login Again.");
+    }
+  }
+}
+
+// Check session on page load
+checkSession();
+  </script>
+</body>
+
+</html>
