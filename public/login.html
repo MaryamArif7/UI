@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="styles.css">
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js">
+ </script>
   <title>Login & Signup</title>
 </head>
 
@@ -20,13 +22,15 @@
   </div>
 
   <script>
-   // Define database name and object store name
+// Database and Store Details
 const dbName = 'UserDataDB'; // IndexedDB database name
 const storeName = 'users'; // Object store name
+const tokenStoreName = 'tokens'; // New object store for tokens
 
+//the secret key that will b eused for the encryprion of the token before saving it to the inxeddb 
+const encryptionKey = "maryam-201306"; 
 /**
  * Opens or creates the IndexedDB database.
- * @returns {Promise<IDBDatabase>} A promise that resolves to the opened database instance.
  */
 function createIndexedDB() {
   const request = indexedDB.open(dbName, 1);
@@ -34,16 +38,18 @@ function createIndexedDB() {
   request.onupgradeneeded = (event) => {
     const db = event.target.result;
 
-    // Create the `users` object store with `username` as the key path
+    // Create 'users' object store if stores name does not have it already ,taking the username as keypath
     if (!db.objectStoreNames.contains(storeName)) {
       const store = db.createObjectStore(storeName, { keyPath: 'username' });
-
-      // Create indexes for efficient querying
-      store.createIndex('userId', 'userId', { unique: false });
       store.createIndex('passwordId', 'passwordId', { unique: false });
     }
 
-    console.log('Database and `users` object store created/updated successfully.');
+    // Create 'tokens' object store to stores the object which will take the key path username as the keypath
+    if (!db.objectStoreNames.contains(tokenStoreName)) {
+      const tokenStore = db.createObjectStore(tokenStoreName, { keyPath: 'username' });
+    }
+
+    console.log('Database and object stores created/updated successfully.');
   };
 
   request.onsuccess = (event) => {
@@ -55,16 +61,105 @@ function createIndexedDB() {
   };
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  createIndexedDB();
-});
+/**
+ * ghenerate a JWT token for session management basically if the token is short lived then the user will have to login
+ * again token will chnage ,that makes the token secure ,because token will chnage after few time.
+ * Uses AES encryption for token security.
+ */
+function generateToken(username) {
+  //HS 256->a hashing algorhtm ,it will  generate the token using HS 256 algorithm 
+  const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
+  const payload = btoa(JSON.stringify({ username, exp: Date.now() + 3600000 })); // 1-hour expiration
+  //signature is created by concating the header which contains the info about type of jwt and algorithm and the payload whih conatin infor
+  //about the username and its expiry
+  const signature = btoa(header + "." + payload);
+  //secured is a token ->not using the standard name for it
+  const secured = `${header}.${payload}.${signature}`;
+  //crypto js is a libabry hwihc has a fun to encryp the token 
+  return CryptoJS.AES.encrypt(secured, encryptionKey).toString(); // Encrypted token
+}
 
-// Form handling
+/**
+ * Saves the encrypted token in IndexedDB.
+ */
+function saveTokenToDB(username, secured) {
+  const request = indexedDB.open(dbName, 1);
+  request.onsuccess = (event) => {
+    const db = event.target.result;
+    /* we use transaction  to perform multiple read and write operation togethe
+     in transaction of the db we are perform read and write using the token store
+    */
+    const transaction = db.transaction([tokenStoreName], "readwrite");
+    const store = transaction.objectStore(tokenStoreName);
+  // and now the store has the username and token in the token 
+    store.put({ username, secured });
+  };
+  request.onerror = () => console.error("Failed to save token in DB.");
+}
+
+/**
+ * get and decrypts the token from IndexedDB.
+ *  username - The username to find the token.
+ * callback function to handle the result.
+ */
+function getTokenFromDB(username, callback) {
+  const request = indexedDB.open(dbName, 1);
+  request.onsuccess = (event) => {
+    const db = event.target.result;
+    const transaction = db.transaction([tokenStoreName], "readonly");
+    const store = transaction.objectStore(tokenStoreName);
+    const getToken = store.get(username);
+
+    getToken.onsuccess = (event) => {
+      const record = event.target.result;
+      if (record) {
+        const decryptedToken = CryptoJS.AES.decrypt(record.token, encryptionKey).toString(CryptoJS.enc.Utf8);
+        callback(decryptedToken);
+      } else {
+        callback(null);
+      }
+    };
+  };
+}
+
+/**
+ * Checks the session based on the stored encrypted token.
+ * Redirects to index.html if the user is already logged in.
+ */
+function checkSession() {
+  const username = localStorage.getItem("currentUser"); // Temporarily stored username
+  if (!username) return;
+
+  getTokenFromDB(username, (token) => {
+    if (token) {
+      const payload = JSON.parse(atob(token.split(".")[1]));
+      if (payload.exp > Date.now()) {
+        window.location.href = 'index.html';
+      } else {
+        console.warn("Session expired.");
+      }
+    } else {
+      console.warn("No active session.");
+    }
+  });
+
+  // **COMMENTED LOCAL STORAGE TOKEN**
+  // const sec = localStorage.getItem("sec");
+  // if (sec) {
+  //   const payload = JSON.parse(atob(sec.split(".")[1]));
+  //   if (payload.exp > Date.now()) {
+  //     window.location.href = 'index.html';
+  //   } else {
+  //     localStorage.removeItem("sec");
+  //   }
+  // }
+}
+
+// Form Toggle Handling
 const formTitle = document.querySelector("h2[data-heading='c1h1_heading']");
 const toggleForm = document.querySelector("[data-input='c1i3_input']");
 let isLogin = true;
 
-// Toggle between Login and Signup
 toggleForm.addEventListener("click", () => {
   isLogin = !isLogin;
   formTitle.textContent = isLogin ? "Login" : "Sign Up";
@@ -73,73 +168,78 @@ toggleForm.addEventListener("click", () => {
     : "Already have an account? <a href='#'>Login</a>";
 });
 
-// Handle form submission
+// Form Submission Handling
 document.querySelector("[data-form='c1f1_form']").addEventListener("submit", (event) => {
   event.preventDefault();
-
+//get the alues from the input fields
   const username = document.getElementById("username").value;
   const password = document.getElementById("password").value;
-
+//open the db
   const request = indexedDB.open(dbName, 1);
   request.onsuccess = (event) => {
     const db = event.target.result;
+    // read and write the store intot db
     const transaction = db.transaction([storeName], "readwrite");
     const store = transaction.objectStore(storeName);
-
+       
     if (isLogin) {
-      // Login logic
       const getUser = store.get(username);
       getUser.onsuccess = (event) => {
+        //when logingin in it will get the values from the input
         const user = event.target.result;
+        //is the password is matched 
         if (user && user.password === password) {
-          const token = generateToken(username);
-          localStorage.setItem("token", token);
-          alert("Login Successful! Token stored.");
+          //it will call the generate token function ,and pass the username
+          const secured = generateToken(username);
+          //now the saveTokenToDB function is called 
+          saveTokenToDB(username, secured); 
+          // localStorage.setItem("secured", secured); 
+          alert("Login Successful! Redirecting...");
+          window.location.href = 'index.html';
         } else {
           alert("Invalid username or password");
         }
       };
       getUser.onerror = () => alert("User not found!");
     } else {
-      // Signup logic
-      const addUser = store.add({ username, password });
-      addUser.onsuccess = () => alert("Signup Successful! Now login.");
-      addUser.onerror = () => alert("User already exists!");
+      //save the username and passowrd into the db 
+      getUser.onsuccess = async () => {
+      if (getUser.result) {
+        alert("User already exists!");
+      } else {
+        // Hash the password before storing
+        //await will wait for the password to be hashed 
+        //the hash func is called 
+        const hashedPassword = await hashPassword(password);
+
+        // Save the username and hashed password into the db 
+        const addUser = store.add({ username, password: hashedPassword });
+        addUser.onsuccess = () => alert("Signup Successful! Now login.");
+        addUser.onerror = () => alert("Error saving user!");
+      }
+    };
     }
   };
   request.onerror = () => alert("Database error!");
 });
-
-/**
- * Generates a JWT token for the given username.
- * @param {string} username - The username for which the token is generated.
- * @returns {string} The generated JWT token.
- */
-function generateToken(username) {
-  const header = btoa(JSON.stringify({ alg: "HS256", typ: "JWT" }));
-  const payload = btoa(JSON.stringify({ username, exp: Date.now() + 3600000 }));
-  const signature = btoa(header + "." + payload);
-  return `${header}.${payload}.${signature}`;
+// Hash the password using SHA-256
+//the ref for hashing the password:
+//https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto/digest
+async function hashPassword(password) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(password); 
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer)); 
+  const hashHex = hashArray.map((byte) => byte.toString(16).padStart(2, "0")).join(""); 
+  return hashHex; 
 }
 
-/**
- * Checks the session based on the stored JWT token.
- */
-function checkSession() {
-  const token = localStorage.getItem("token");
-  if (token) {
-    const payload = JSON.parse(atob(token.split(".")[1]));
-    if (payload.exp > Date.now()) {
-      alert("Session Active for " + payload.username);
-    } else {
-      localStorage.removeItem("token");
-      alert("Session Expired. Please Login Again.");
-    }
-  }
-}
+document.addEventListener('DOMContentLoaded', () => {
+  checkSession();
+  createIndexedDB();
+});
 
-// Check session on page load
-checkSession();
+
   </script>
 </body>
 
